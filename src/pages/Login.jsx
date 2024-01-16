@@ -20,9 +20,6 @@ const Login = () => {
         { email, password },
         { 
           withCredentials: true,
-          headers: {
-            'Content-Type': 'application/json'
-          }
         }
       );
       navigate("/");

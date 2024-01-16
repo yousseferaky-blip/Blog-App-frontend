@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
 import { createContext } from "react";
-import { BASE_URL } from "../assets/url";
+// import { BASE_URL } from "../assets/url";
 import Loader from "../component/Loader";
 
 export const UserContext = createContext({});
@@ -12,7 +12,7 @@ export function UserContextProvider({ children }) {
 
   const getUser = async () => {
     try {
-      const res = await axios.get(`${BASE_URL}/auth/refetch`, { withCredentials: true });
+      const res = await axios.get(`/auth/refetch`, { withCredentials: true });
       setUser(res.data);
       setLoading(false); 
     } catch (err) {
@@ -29,15 +29,13 @@ export function UserContextProvider({ children }) {
     getUser();
   }, []);
 
- 
   return (
     <>
-    {
-      loading ? <Loader />:
-    <UserContext.Provider value={{ user, setUser, getUser }}>
-      {children}
-    </UserContext.Provider>
-    }
+      {loading ? <Loader /> : 
+        <UserContext.Provider value={{ user, setUser, getUser }}>
+          {children}
+        </UserContext.Provider>
+      }
     </>
   );
 }

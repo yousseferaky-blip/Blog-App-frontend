@@ -21,12 +21,7 @@ const Register = () => {
   const handleRegister = async (e) => {
     try {
       e.preventDefault();
-      await axios.post(`${BASE_URL}/auth/register`, form, {
-        withCredentials: true,
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
+      await axios.post(`${BASE_URL}/auth/register`, form, {withCredentials: true,});
       navigate("/login");
       toast.success("Please Login");
     } catch (err) {
