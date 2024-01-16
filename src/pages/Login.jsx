@@ -18,7 +18,12 @@ const Login = () => {
       const res = await axios.post(
         `${BASE_URL}/auth/login`,
         { email, password },
-        { withCredentials: true }
+        { 
+          withCredentials: true,
+          headers: {
+            'Content-Type': 'application/json'
+          }
+        }
       );
       navigate("/");
       toast.success("Logged Successfully");
