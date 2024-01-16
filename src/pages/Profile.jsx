@@ -17,7 +17,7 @@ const Profile = () => {
 
   const FetchUser = async () => {
     try {
-      const res = await axios.get(`${BASE_URL}/users/${user._id}`)
+      const res = await axios.get(`${BASE_URL}/users/${user._id}`,{ withCredentials: true })
       setUserName(res.data.info.username)
       setEmail(res.data.info.email)
     } catch (err) {

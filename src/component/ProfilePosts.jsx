@@ -12,7 +12,7 @@ const ProfilePosts = () => {
   useEffect(() => {
     const getUserPosts = async () => {
       try {
-        const response = await axios.get(`${BASE_URL}/post/user/${user._id}`);
+        const response = await axios.get(`${BASE_URL}/post/user/${user._id}`,{ withCredentials: true });
         setUserPosts(response.data.posts);
       } catch (error) {
         console.error('Error fetching user posts:', error);

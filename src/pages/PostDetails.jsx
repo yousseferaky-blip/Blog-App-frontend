@@ -24,7 +24,7 @@ const PostDetails = () => {
   // =========================== GET POST ===========================
   const FetchPost = async () => {
     try {
-      const res = await axios.get(`${BASE_URL}/post/${id}`);
+      const res = await axios.get(`${BASE_URL}/post/${id}`,{ withCredentials: true });
       setPost(res.data.post);
       setLoading(false);
     } catch (err) {
@@ -59,7 +59,7 @@ const PostDetails = () => {
   // =========================== GET COMMENT ===========================
   const GetComments = async () => {
     try {
-      const res = await axios.get(`${BASE_URL}/comment/post/${id}`);
+      const res = await axios.get(`${BASE_URL}/comment/post/${id}`,{ withCredentials: true });
       setComments(res.data.post);
     } catch (err) {
       console.log(err);

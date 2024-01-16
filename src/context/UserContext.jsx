@@ -14,14 +14,14 @@ export function UserContextProvider({ children }) {
     try {
       const res = await axios.get(`${BASE_URL}/auth/refetch`, { withCredentials: true });
       setUser(res.data);
-      setLoading(false);
+      setLoading(false); 
     } catch (err) {
       if (err.response && err.response.status === 404) {
         setLoading(false);
-      } else {
-        console.log(err);
-        setLoading(false);
+        return;
       }
+      console.error(err);
+      setLoading(false);
     }
   };
 

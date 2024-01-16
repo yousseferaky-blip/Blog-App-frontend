@@ -20,7 +20,7 @@ const EditPost = () => {
  
   const FetchPost = async () => {
     try {
-      const res = await axios.get(`${BASE_URL}/post/${id}`);
+      const res = await axios.get(`${BASE_URL}/post/${id}`,{ withCredentials: true });
       setPost(res.data);
     } catch (err) {
       console.log(err);

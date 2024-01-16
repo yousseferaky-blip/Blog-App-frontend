@@ -16,7 +16,7 @@ const Home = () => {
 
   const FetchPosts = async () => {
     try {
-      const res = await axios.get(`${BASE_URL}/post`);
+      const res = await axios.get(`${BASE_URL}/post`,{ withCredentials: true });
 
       if (isMounted.current) {
         setPosts(res.data.posts);
